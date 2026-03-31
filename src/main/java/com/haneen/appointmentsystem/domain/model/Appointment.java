@@ -64,6 +64,10 @@ public class Appointment {
         return provider;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public void cancel(){
         if(this.status == AppointmentStatus.COMPLETED){
             throw new AppointmentAlreadyCompletedException();
@@ -99,6 +103,7 @@ public class Appointment {
         this.startTime = newStart;
         this.endTime = newEnd;
     }
-
-
+    public boolean overlaps(LocalDateTime start, LocalDateTime end) {
+        return this.startTime.isBefore(end) && this.endTime.isAfter(start);
+    }
 }
