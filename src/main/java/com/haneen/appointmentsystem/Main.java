@@ -31,14 +31,14 @@ public class Main {
             );
 
             //5. Call service method (test)
-            Appointment appointment = service.createAppointment(
-                    user.getId(),
-                    provider.getId(),
-                    LocalDateTime.of(2026, 4, 1, 10, 0),
-                    LocalDateTime.of(2026, 4, 1, 11, 0)
-            );
-
-            System.out.println("Created appointment with id: " + appointment.getId());
+//            Appointment appointment = service.createAppointment(
+//                    user.getId(),
+//                    provider.getId(),
+//                    LocalDateTime.of(2026, 4, 1, 10, 0),
+//                    LocalDateTime.of(2026, 4, 1, 11, 0)
+//            );
+//
+//            System.out.println("Created appointment with id: " + appointment.getId());
 
 //            //7.test reschedule
 //            service.rescheduleAppointment(
@@ -74,8 +74,6 @@ public class Main {
 //            } catch (Exception e) {
 //                System.out.println("Reschedule after cancel: " + e.getMessage());
 //            }
-
-            //TODO: add completeAppointment method in service
 
             //Overlap Conflict
 //            try {
@@ -135,16 +133,16 @@ public class Main {
 //            }
 
             //rescheduling an already completed appointment
-            service.completeAppointment(appointment.getId());
-            try {
-                service.rescheduleAppointment(
-                        appointment.getId(),
-                        LocalDateTime.of(2026, 4, 2, 10, 0),
-                        LocalDateTime.of(2026, 4, 2, 11, 0)
-                );
-            } catch (Exception e) {
-                System.out.println("Reschedule after complete: " + e.getMessage());
-            }
+//            service.completeAppointment(appointment.getId());
+//            try {
+//                service.rescheduleAppointment(
+//                        appointment.getId(),
+//                        LocalDateTime.of(2026, 4, 2, 10, 0),
+//                        LocalDateTime.of(2026, 4, 2, 11, 0)
+//                );
+//            } catch (Exception e) {
+//                System.out.println("Reschedule after complete: " + e.getMessage());
+//            }
         }
 
 }

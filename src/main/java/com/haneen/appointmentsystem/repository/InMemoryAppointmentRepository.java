@@ -39,7 +39,7 @@ public class InMemoryAppointmentRepository implements AppointmentRepository{
         for(Appointment appointment : storage.values()){
 
             if(appointment.getProvider().getId().equals(providerId)
-            && excludeAppointmentId == null || !appointment.getId().equals(excludeAppointmentId)
+            && (excludeAppointmentId == null || !appointment.getId().equals(excludeAppointmentId))
             && appointment.overlaps(start, end)){
 
                 result.add(appointment);
