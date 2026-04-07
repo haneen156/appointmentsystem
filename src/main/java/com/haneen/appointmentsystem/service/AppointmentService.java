@@ -96,5 +96,21 @@ public class AppointmentService {
         return appointment;
     }
 
+    public Appointment completeAppointment(Long appointmentId) {
 
+        if (appointmentId == null) {
+            throw new IllegalArgumentException("Invalid Input");
+        }
+
+        Appointment appointment = appointmentRepository.findById(appointmentId)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Appointment with id " + appointmentId + " not found"
+                ));
+
+        appointment.complete();
+
+        appointmentRepository.save(appointment);
+
+        return appointment;
+    }
 }
