@@ -61,6 +61,49 @@ This project is actively under development.
 
 ## 🧠 System Design
 
+## 📊 Diagrams
+
+---
+
+### 🗄️ Entity Relationship Diagram (ERD)
+Represents the relational structure of the system, including users, providers, and appointments, along with their relationships.
+
+![ERD](docs/Appointment-ERD.png)
+
+---
+
+### 🗄️ Database Schema
+Represents the relational structure of users, providers, and appointments.
+
+![Database Schema](docs/database-schema.png)
+
+---
+
+### Sequence Diagrams
+
+---
+
+### 🔄 Appointment Creation Flow
+This diagram illustrates how an appointment is created, including conflict detection before persistence.
+
+![Create Appointment](docs/create-appointment-flow.png)
+
+---
+
+### 🔁 Cancel Appointment Flow
+Shows validation of appointment state before allowing cancellation.
+
+![Cancel Appointment](docs/cancel-appointment-flow.png)
+
+---
+
+### 🔁 Reschedule Appointment Flow
+Demonstrates rescheduling logic with conflict checks while excluding the current appointment.
+
+![Reschedule Appointment](docs/reschedule-appointment-flow.png)
+
+---
+
 ### 🔄 Appointment Creation Flow
 Handles conflict detection before saving an appointment.
 
