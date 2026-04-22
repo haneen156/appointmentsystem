@@ -1,5 +1,6 @@
 package com.haneen.appointmentsystem;
 
+import com.haneen.appointmentsystem.controller.AppointmentController;
 import com.haneen.appointmentsystem.domain.model.*;
 import com.haneen.appointmentsystem.repository.*;
 import com.haneen.appointmentsystem.service.AppointmentService;
