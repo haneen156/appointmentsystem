@@ -1,11 +1,13 @@
 package com.haneen.appointmentsystem.repository;
 
 import com.haneen.appointmentsystem.domain.model.Provider;
+import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
 public class InMemoryProviderRepository implements ProviderRepository{
 
     private Map<Long,Provider> storage = new HashMap<>();
