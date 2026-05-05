@@ -2,12 +2,15 @@ package com.haneen.appointmentsystem.service;
 
 import com.haneen.appointmentsystem.domain.exception.*;
 import com.haneen.appointmentsystem.domain.model.*;
+import com.haneen.appointmentsystem.interfaces.AppointmentServiceInterface;
 import com.haneen.appointmentsystem.repository.*;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-public class AppointmentService {
+@Service
+public class AppointmentService implements AppointmentServiceInterface {
 
 
     //These references cannot be changed after initialization
@@ -24,6 +27,7 @@ public class AppointmentService {
         this.providerRepository = providerRepository;
     }
 
+    @Override
     public Appointment createAppointment(Long userId,
                                          Long providerId,
                                          LocalDateTime startTime,
@@ -52,6 +56,7 @@ public class AppointmentService {
         return appointment;
     }
 
+    @Override
     public Appointment cancelAppointment( Long appointmentId ){
 
         if(appointmentId == null ) {
@@ -68,6 +73,7 @@ public class AppointmentService {
         return appointment;
     }
 
+    @Override
     public Appointment rescheduleAppointment( Long appointmentId,
                                               LocalDateTime newStart ,
                                               LocalDateTime newEnd ){
@@ -96,6 +102,7 @@ public class AppointmentService {
         return appointment;
     }
 
+    @Override
     public Appointment completeAppointment(Long appointmentId) {
 
         if (appointmentId == null) {
