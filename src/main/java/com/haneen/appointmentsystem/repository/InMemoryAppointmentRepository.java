@@ -1,10 +1,13 @@
 package com.haneen.appointmentsystem.repository;
 
 import com.haneen.appointmentsystem.domain.model.Appointment;
+import com.haneen.appointmentsystem.domain.model.AppointmentStatus;
+import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
+@Repository
 public class InMemoryAppointmentRepository implements AppointmentRepository{
     private Map<Long, Appointment> storage = new HashMap<>();
 
@@ -40,7 +43,7 @@ public class InMemoryAppointmentRepository implements AppointmentRepository{
 
             if(appointment.getProvider().getId().equals(providerId)
             && (excludeAppointmentId == null || !appointment.getId().equals(excludeAppointmentId))
-            && appointment.overlaps(start, end)){
+            && appointment.overlaps(start, end) && appointment.getStatus() == AppointmentStatus.BOOKED){
 
                 result.add(appointment);
             }
