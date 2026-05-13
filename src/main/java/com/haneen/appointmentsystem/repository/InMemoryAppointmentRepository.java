@@ -55,4 +55,28 @@ public class InMemoryAppointmentRepository implements AppointmentRepository{
     public List<Appointment> findAll() {
         return new ArrayList<>(storage.values());
     }
+
+    @Override
+    public List<Appointment> findByUserId(Long userId) {
+        List<Appointment> result = new ArrayList<>();
+
+        for(Appointment appointment : storage.values()){
+            if(appointment.getUser().getId().equals(userId)){
+                result.add(appointment);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<Appointment> findByProviderId(Long providerId) {
+        List<Appointment> result = new ArrayList<>();
+
+        for(Appointment appointment : storage.values()){
+            if(appointment.getProvider().getId().equals(providerId)){
+                result.add(appointment);
+            }
+        }
+        return result;
+    }
 }

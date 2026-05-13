@@ -103,6 +103,30 @@ public class AppointmentService implements AppointmentServiceInterface {
     }
 
     @Override
+    public List<Appointment> getAppointmentsByUser(Long userId, AppointmentStatus status) {
+        List<Appointment> appointments = appointmentRepository.findByUserId(userId);
+
+        if(status == null){
+            return appointments;
+        }
+        return appointments.stream()
+                .filter(a -> a.getStatus() == status)
+                .toList();
+    }
+
+    @Override
+    public List<Appointment> getAppointmentsByProvider(Long providerId, AppointmentStatus status){
+        List<Appointment> appointments = appointmentRepository.findByProviderId(providerId);
+
+        if(status == null){
+            return appointments;
+        }
+        return appointments.stream()
+                .filter(a -> a.getStatus() == status)
+                .toList();
+    }
+
+    @Override
     public Appointment completeAppointment(Long appointmentId) {
 
         if (appointmentId == null) {
@@ -120,4 +144,6 @@ public class AppointmentService implements AppointmentServiceInterface {
 
         return appointment;
     }
+
+
 }

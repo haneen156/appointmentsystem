@@ -22,4 +22,8 @@ public interface AppointmentRepository {
     );
 
     List<Appointment> findAll();
+
+    List<Appointment> findByUserId(Long userId);
+
+    List<Appointment> findByProviderId(Long providerId);
 }
